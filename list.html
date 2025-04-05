@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الطلبة - نظام إدارة الطلبة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">
+                    <i class="fas fa-list mr-2"></i>
+                    قائمة الطلبة
+                </h1>
+                <nav class="flex space-x-4 space-x-reverse">
+                    <a href="index.html" class="px-4 py-2 hover:bg-blue-700 rounded-lg">الرئيسية</a>
+                    <a href="list.html" class="px-4 py-2 bg-blue-700 rounded-lg">قائمة الطلبة</a>
+                    <a href="add.html" class="px-4 py-2 hover:bg-blue-700 rounded-lg">إضافة طالب</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-4 bg-gray-50 border-b">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-gray-800">سجل الطلبة</h2>
+                    <div class="flex space-x-2 space-x-reverse">
+                        <a href="add.html" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300">
+                            <i class="fas fa-plus mr-2"></i>إضافة طالب
+                        </a>
+                        <button id="exportCSV" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300">
+                            <i class="fas fa-file-export mr-2"></i>تصدير CSV
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="relative flex-1">
+                        <input type="search" id="searchInput" placeholder="ابحث باسم أو بريد إلكتروني..." 
+                            class="w-full px-4 py-2 pr-10 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الرقم</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الاسم</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">البريد الإلكتروني</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">العمر</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="studentsTable">
+                        <!-- سيتم ملء هذا القسم عبر JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="p-4 bg-gray-50 border-t flex justify-between items-center">
+                <div class="text-sm text-gray-500">إجمالي الطلبة: <span id="totalStudents">0</span></div>
+                <div class="flex space-x-2 space-x-reverse">
+                    <button id="prevBtn" class="px-3 py-1 bg-gray-200 rounded disabled:opacity-50" disabled>السابق</button>
+                    <span id="pageInfo" class="px-3 py-1">الصفحة 1 من 1</span>
+                    <button id="nextBtn" class="px-3 py-1 bg-gray-200 rounded disabled:opacity-50" disabled>التالي</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="deleteModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">تأكيد الحذف</h3>
+            <p class="mb-6">هل أنت متأكد من رغبتك في حذف هذا الطالب؟ لا يمكن التراجع عن هذا الإجراء.</p>
+            <div class="flex justify-end space-x-3 space-x-reverse">
+                <button id="cancelDelete" class="px-4 py-2 bg-gray-300 rounded-lg">إلغاء</button>
+                <button id="confirmDelete" class="px-4 py-2 bg-red-600 text-white rounded-lg">حذف</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 نظام إدارة الطلبة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
