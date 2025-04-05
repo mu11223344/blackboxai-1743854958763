@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة الطلبة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">
+                    <i class="fas fa-user-graduate mr-2"></i>
+                    نظام إدارة الطلبة
+                </h1>
+                <nav class="flex space-x-4 space-x-reverse">
+                    <a href="index.html" class="px-4 py-2 bg-blue-700 rounded-lg">الرئيسية</a>
+                    <a href="list.html" class="px-4 py-2 hover:bg-blue-700 rounded-lg">قائمة الطلبة</a>
+                    <a href="add.html" class="px-4 py-2 hover:bg-blue-700 rounded-lg">إضافة طالب</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="bg-white rounded-lg shadow-md p-8 text-center">
+            <h2 class="text-3xl font-bold text-blue-600 mb-6">مرحباً بك في نظام إدارة الطلبة</h2>
+            <p class="text-gray-700 mb-8 text-lg">هذا النظام يتيح لك إدارة سجلات الطلبة بسهولة. يمكنك إضافة طلبة جدد، تعديل بياناتهم، أو حذفها.</p>
+            
+            <div class="flex justify-center space-x-4 space-x-reverse">
+                <a href="list.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+                    <i class="fas fa-list mr-2"></i>عرض قائمة الطلبة
+                </a>
+                <a href="add.html" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300">
+                    <i class="fas fa-plus mr-2"></i>إضافة طالب جديد
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 نظام إدارة الطلبة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
